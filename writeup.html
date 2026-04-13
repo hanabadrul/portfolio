@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Write-up — Hana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Fira+Code:wght@300;400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* ─── Write-up page overrides ─── */
+
+    /* No hero section — give the page header a dark band */
+    .wu-header {
+      min-height: 38vh;
+      background: var(--board-bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: calc(var(--nav-h) + 4rem) 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Scanlines matching the hero */
+    .wu-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0) 0px, rgba(0,0,0,0) 3px,
+        rgba(0,0,0,0.12) 3px, rgba(0,0,0,0.12) 4px
+      );
+      pointer-events: none;
+    }
+
+    .wu-header-inner {
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      opacity: 0;
+      animation: brdFade 0.7s 0.1s ease forwards;
+    }
+
+    .wu-header .section-index { margin-bottom: 0.5rem; }
+
+    .wu-header h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+
+    /* ─── Post listing ─── */
+    .wu-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 3rem 7rem;
+    }
+
+    /* Full-width stacked list rather than the card grid */
+    .wu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .wu-item {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      align-items: baseline;
+      gap: 2.5rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      transition: background 0.2s;
+    }
+    .wu-item:first-child { border-top: 1px solid var(--border); }
+
+    .wu-item::after {
+      content: '→';
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .wu-item:hover::after { opacity: 1; transform: translateX(0); }
+
+    .wu-item-date {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .wu-item-title {
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+    }
+    .wu-item:hover .wu-item-title { color: var(--accent); }
+
+    .wu-item-excerpt {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* Tag badges on each post */
+    .wu-item-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 820px) {
+      .wu-header { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .wu-main   { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .wu-item   { grid-template-columns: 1fr; gap: 0.5rem; }
+      .wu-item::after { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─── Navbar ─────────────────────────────────────────── -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">hana</a>
+    <ul class="nav-links">
+      <li><a href="index.html#me">me</a></li>
+      <li><a href="index.html#skills">skills</a></li>
+      <li><a href="index.html#experience">experience</a></li>
+      <li><a href="writeup.html" class="active">write-up</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── Page header ────────────────────────────────────── -->
+  <header class="wu-header">
+    <div class="wu-header-inner">
+      <span class="section-index">04</span>
+      <h1>Write-up.</h1>
+    </div>
+  </header>
+
+  <!-- ─── Post listing ───────────────────────────────────── -->
+  <main class="wu-main">
+    <div class="wu-list">
+
+      <a href="#ctf-first" id="ctf-first" class="wu-item reveal">
+        <span class="wu-item-date">apr 2026</span>
+        <div class="wu-item-body">
+          <h2 class="wu-item-title">First CTF write-up</h2>
+          <p class="wu-item-excerpt">Walking through my first capture-the-flag challenge — what I got wrong, what finally clicked, and the tools that saved me.</p>
+          <div class="wu-item-tags">
+            <span class="tag">ctf</span>
+            <span class="tag">beginner</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#osint-footprint" id="osint-footprint" class="wu-item reveal">
+        <span class="wu-item-date">mar 2026</span>
+        <div class="wu-item-body">
+          <h2 class="wu-item-title">OSINT: tracing a digital footprint</h2>
+          <p class="wu-item-excerpt">How much can you find about someone from a single username? More than you'd think. A beginner's investigation into open-source intelligence.</p>
+          <div class="wu-item-tags">
+            <span class="tag">osint</span>
+            <span class="tag">investigation</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#packet-analysis" id="packet-analysis" class="wu-item reveal">
+        <span class="wu-item-date">jan 2026</span>
+        <div class="wu-item-body">
+          <h2 class="wu-item-title">Notes on packet analysis</h2>
+          <p class="wu-item-excerpt">Getting comfortable with Wireshark — filters, protocols, and the story a network tells when you learn to listen.</p>
+          <div class="wu-item-tags">
+            <span class="tag">wireshark</span>
+            <span class="tag">networking</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- ─── Footer ──────────────────────────────────────────── -->
+  <footer>
+    <p>© 2026 Hana. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://github.com/hanabadrul">github</a>
+      <a href="https://www.linkedin.com/in/hanabadrul/">linkedin</a>
+      <a href="#">email</a>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+
+</body>
+</html>
