@@ -320,6 +320,8 @@
         // Phase 2: swap image then uncover
         setTimeout(function () {
           if (!chappyShown) {
+            var audio = new Audio('audios/awwww.mp3');
+            audio.play().catch(function () {});
             activeImg.style.display = 'block';
             txt.style.display = 'block';
             btn.textContent = 'hide me';
