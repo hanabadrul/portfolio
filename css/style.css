@@ -33,7 +33,7 @@
   --fg: clamp(1px, 0.3vw, 3px);           /* gap between flaps   */
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-size: 18px; }
 
 body {
   background: var(--bg);
@@ -456,7 +456,76 @@ section:not(#hero) + section:not(#hero) {
 }
 .exp-item:hover .exp-dot { opacity: 1; }
 
-/* ─── Write-up ───────────────────────────────────────── */
+/* ─── Education (in me section) ──────────────────────── */
+.me-edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-bottom: 0;
+}
+
+.me-edu-list .me-edu:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.me-edu {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.edu-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.edu-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.edu-school {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  color: var(--fg);
+}
+
+.edu-degree {
+  font-size: 0.85rem;
+  color: var(--fg-muted, var(--fg));
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.edu-period {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-top: 0.15rem;
+}
+
+.edu-cgpa {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+/* ─── Write-ups ──────────────────────────────────────── */
+.under-construction {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 2rem;
+}
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
