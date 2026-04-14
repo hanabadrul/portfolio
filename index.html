@@ -8,30 +8,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Fira+Code:wght@300;400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="images/raspberry_jam.png" type="image/png" />
 </head>
 
 <body>
 
-  <!-- ─── Navbar ─────────────────────────────────────────── -->
   <nav id="navbar">
     <a href="#hero" class="nav-logo">hana</a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="#me">me</a></li>
+      <li><a href="#education">education</a></li>
       <li><a href="#skills">skills</a></li>
       <li><a href="#experience">experience</a></li>
       <li><a href="#writeup">write-ups</a></li>
     </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <!-- ─── Hero ───────────────────────────────────────────── -->
   <section id="hero">
 
-    <!-- Static greeting -->
     <div class="hero-greeting">
       <h1>Hello, I'm <em>Hana Badrul</em></h1>
     </div>
 
-    <!-- Analog split-flap board showing alternating phrases -->
     <div class="board-outer">
       <div class="board-housing">
 
@@ -53,126 +54,212 @@
 
   </section>
 
-  <!-- ─── Me ─────────────────────────────────────────────── -->
   <section id="me">
     <span class="section-index reveal">01</span>
     <h2 class="section-title reveal">About me.</h2>
     <div class="me-grid reveal">
       <div class="me-aside">
-        <div class="me-avatar">[ photo ]</div>
-        <div class="me-edu-list">
-          <div class="me-edu">
-            <img src="images/um.png" alt="UM" class="edu-logo" />
-            <div class="edu-body">
-              <div class="edu-school">Universiti Malaya</div>
-              <div class="edu-degree">Bachelor of Computer Science (Computer System & Network)</div>
-              <span class="edu-period">2024 — 2028</span>
-              <span class="edu-cgpa">CGPA 3.59</span>
-            </div>
+        <div style="position:relative;">
+          <div class="me-avatar pixelated-image-card" id="pixel-card">
+            <img class="pixelated-image-card__default" src="images/me.JPG" alt="Hana">
+            <img class="pixelated-image-card__active" src="images/chappy.jpg" alt="Chappy">
+            <div class="pixelated-image-card__pixels" id="pixels-container"></div>
           </div>
-          <div class="me-edu">
-            <img src="images/um.png" alt="UM" class="edu-logo" />
-            <div class="edu-body">
-              <div class="edu-school">Universiti Malaya</div>
-              <div class="edu-degree">Foundation in Physical Sciences</div>
-              <span class="edu-period">2023 - 2024</span>
-              <span class="edu-cgpa">CGPA 3.89</span>
-            </div>
-          </div>
-          <div class="me-edu">
-            <img src="images/sri-aman.png" alt="Sri Aman" class="edu-logo" />
-            <div class="edu-body">
-              <div class="edu-school">SMK (P) Sri Aman</div>
-              <div class="edu-degree">Sub-science stream</div>
-              <span class="edu-period">2018 - 2022</span>
-            </div>
-          </div>
+          <p id="chappy-text" style="display:none; text-align:center; position:absolute; width:100%; top:calc(100% + 0.5rem); margin:0;">CHAPPY!!!!! (my 6 year old tuxedo cat)</p>
         </div>
       </div>
       <div class="me-body">
         <p>
-          I'm currently a 2nd year Bachelor of Computer Science student, majoring in Computer Systems & Network @ Universiti Malaya.
+          I am currently a 2nd year Bachelor of Computer Science student, majoring in Computer System & Network at Universiti Malaya, Malaysia.
         </p>
         <p>
-          Currently studying for my CCNA, wish me luck T-T
+          Right now, I am working towards a CCNA certification.
         </p>
         <p>
-          My interests are in cybersecurity, and I'm eager to continue developing my skills and knowledge in this domain.
+          My interests are in cybersecurity, and I am eager to continue developing my skills and knowledge in this domain.
         </p>
         <p>
-          When I'm offline, I'm probably reading, or trying to understand something I was too impatient to understand yesterday.
-        </p>
-        <p>
-          Current PS4 game I'm playing: Like A Dragon: Infinite Wealth.
+          Current PS4 game I am playing: Like a Dragon: Infinite Wealth.
+          <div style="text-align: center; margin-top: 1rem;">
+            <a href="#" class="blog-btn" id="chappy-btn" onclick="toggleChappy(); return false;">click me</a>
+          </div>
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ─── Skills ─────────────────────────────────────────── -->
-  <section id="skills">
+  <section id="education">
     <span class="section-index reveal">02</span>
+    <h2 class="section-title reveal">Education.</h2>
+    <div class="me-edu-list reveal">
+      <div class="me-edu">
+        <img src="images/um.png" alt="UM" class="edu-logo" />
+        <div class="edu-body">
+          <div class="edu-school">Universiti Malaya</div>
+          <div class="edu-degree">Bachelor of Computer Science (Computer System & Network)</div>
+          <span class="edu-period">2024 — present</span>
+          <span class="edu-cgpa">CGPA 3.59</span>
+        </div>
+      </div>
+      <div class="me-edu">
+        <img src="images/um.png" alt="UM" class="edu-logo" />
+        <div class="edu-body">
+          <div class="edu-school">Universiti Malaya</div>
+          <div class="edu-degree">Foundation in Physical Sciences</div>
+          <span class="edu-period">2023 - 2024</span>
+          <span class="edu-cgpa">CGPA 3.89</span>
+        </div>
+      </div>
+      <div class="me-edu">
+        <img src="images/sri-aman.png" alt="Sri Aman" class="edu-logo" />
+        <div class="edu-body">
+          <div class="edu-school">SMK (P) Sri Aman</div>
+          <div class="edu-degree">Sub-science stream</div>
+          <span class="edu-period">2018 - 2022</span>
+          <span class="edu-cgpa">SPM: 4A+ 3A 1A- 1B+</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <span class="section-index reveal">03</span>
     <h2 class="section-title reveal">Skills.</h2>
     <div class="skills-grid reveal">
       <div class="skill-group">
         <span class="skill-group-label">networking</span>
         <div class="skill-tags">
-          <span class="tag">TCP/IP</span>
-          <span class="tag">DNS</span>
-          <span class="tag">Wireshark</span>
-          <span class="tag">SDN</span>
-          <span class="tag">VLANs</span>
+          <span class="tag">ipv4/ipv6</span>
+          <span class="tag">subnetting</span>
+          <span class="tag">routing & switching</span>
+          <span class="tag">vlans & trunking</span>
+          <span class="tag">dynamic routing</span>
+          <span class="tag">DHCP</span>
+          <span class="tag">NAT/PAT</span>
+          <span class="tag">ACL</span>
+          <span class="tag">ipsec</span> 
+          <span class="tag">vpn</span> 
+          <span class="tag">sdn</span> 
+          <span class="tag">troubleshooting</span>
+          <span class="tag">wireshark</span>
+          <span class="tag">cisco packet tracer</span>
+          <span class="tag">cisco cml</span>
+          <span class="tag">gns3</span>
         </div>
       </div>
       <div class="skill-group">
         <span class="skill-group-label">security</span>
         <div class="skill-tags">
-          <span class="tag">OSINT</span>
-          <span class="tag">CTF</span>
-          <span class="tag">Nmap</span>
-          <span class="tag">Burp Suite</span>
+          <span class="tag">cybersecurity fundamentals</span>
+          <span class="tag">network security</span>
+          <span class="tag">osint</span>
+          <span class="tag">secure configurations</span>
+          <span class="tag">system hardening</span>
+          <span class="tag">web exploitation</span>
+          <span class="tag">digital forensics</span>
         </div>
       </div>
       <div class="skill-group">
-        <span class="skill-group-label">development</span>
+        <span class="skill-group-label">web development</span>
         <div class="skill-tags">
-          <span class="tag">Python</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">HTML/CSS</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Git</span>
+          <span class="tag">html</span>
+          <span class="tag">css</span>
+          <span class="tag">python</span>
+          <span class="tag">r</span>  
+          <span class="tag">java</span> 
+          <span class="tag">javascript</span>
+          <span class="tag">typescript</span> 
+          <span class="tag">react</span>
+          <span class="tag">next.js</span>
+          <span class="tag">node.js</span>
+          <span class="tag">express</span>  
+          <span class="tag">fastapi</span>
+          <span class="tag">sql</span> 
+          <span class="tag">sqlite/mysql</span> 
+          <span class="tag">rest apis</span> 
+          <span class="tag">figma</span> 
+          <span class="tag">firebase</span> 
+          <span class="tag">supabase</span> 
+          <span class="tag">oracle apex</span> 
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group-label">systems/tools</span>
+        <div class="skill-tags">
+          <span class="tag">linux</span>
+          <span class="tag">docker</span>
+          <span class="tag">virtualbox/vmware</span>
+          <span class="tag">git</span>
+          <span class="tag">github</span> 
+          <span class="tag">vscode</span>
+          <span class="tag">google cloud platform (gcp)</span> 
+          <span class="tag">vercel</span>  
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── Experience ──────────────────────────────────────── -->
   <section id="experience">
-    <span class="section-index reveal">03</span>
+    <span class="section-index reveal">04</span>
     <h2 class="section-title reveal">Experience.</h2>
 
     <div class="exp-list reveal">
 
       <div class="exp-item">
         <div class="exp-meta">
-          <span class="exp-period">2024 — present</span>
-          <div class="exp-company">Company Name</div>
+          <span class="exp-period">oct 2024 — present</span>
+          <div class="exp-company">Hope for Strays</div>
         </div>
         <div>
-          <div class="exp-role">Role Title</div>
-          <p class="exp-desc">Description of what you did, the impact you had, and what made this role interesting.</p>
+          <div class="exp-role">Founding Member</div>
+          <p class="exp-desc">What started as a SULAM project, turned into a huge community-driven initiative.</p>
+          <ul class="exp-desc">
+            <li>Organised a strays photoshoot competition, attracted 60 participants, and raised RM854 for charity.</li>
+            <li>Secured monetary and product sponsorship to be distributed to competition winners. </li>
+            <li>Volunteered regularly and coordinated volunteers at the dog shelter in UM.</li>
+          </ul>
         </div>
         <span class="exp-dot"></span>
       </div>
 
       <div class="exp-item">
         <div class="exp-meta">
-          <span class="exp-period">oct 2024 — present</span>
+          <span class="exp-period">aug 2025 — present</span>
           <div class="exp-company">Persatuan Komputer Universiti Malaya (PEKOM)</div>
         </div>
         <div>
           <div class="exp-role">Logistics and Technical Division Member</div>
-          <p class="exp-desc">Assisted with transporting items and setting up technical equipment..</p>
+          <p class="exp-desc">Assisted with event logistics and technical equipment setups for PEKOM events.</p>
+        </div>
+        <span class="exp-dot"></span>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <span class="exp-period">sep 2025 — dec 2025</span>
+          <div class="exp-company">Dean's Cup FCSIT</div>
+        </div>
+        <div>
+          <div class="exp-role">Technical Lead</div>
+          <ul class="exp-desc">
+            <li>Led the web development team to produce a website used by >500 students. </li>
+            <li>Provided technical support for live-streams and LAN setup.</li>
+          </ul>
+        </div>
+        <span class="exp-dot"></span>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <span class="exp-period">jan 2026 — present</span>
+          <div class="exp-company">MYTECH Career Fair 2026</div>
+        </div>
+        <div>
+          <div class="exp-role">Technical Lead</div>
+          <ul class="exp-desc">
+            <li>Led the on-site technical operations for the career fair. </li>
+            <li>Oversaw the career fair website development.</li>
+          </ul>
         </div>
         <span class="exp-dot"></span>
       </div>
@@ -180,27 +267,97 @@
     </div>
   </section>
 
-  <!-- ─── Write-ups ───────────────────────────────────────── -->
   <section id="writeup">
-    <span class="section-index reveal">04</span>
+    <span class="section-index reveal">05</span>
     <h2 class="section-title reveal">Write-ups.</h2>
 
-    <div class="under-construction reveal">[ under construction ]</div>
+    <a href="#top" class="blog-btn reveal">read my blog →</a>
+    <span class="under-construction reveal">(under construction)</span>
 
   </section>
 
-  <!-- ─── Footer ──────────────────────────────────────────── -->
   <footer>
-    <p>© 2026 Hana. All rights reserved.</p>
+    <p>© 2026. All rights reserved.</p>
     <div class="footer-links">
       <a href="https://github.com/hanabadrul">github</a>
       <a href="https://www.linkedin.com/in/hanabadrul/">linkedin</a>
-      <a href="#">email</a>
+      <a href="mailto:hana.jpeg@gmail.com">email</a>
     </div>
   </footer>
 
   <script src="js/board.js"></script>
   <script src="js/nav.js"></script>
+  <script>
+    (function () {
+      var COLS = 10, ROWS = 13;
+      var container = document.getElementById('pixels-container');
+      for (var r = 0; r < ROWS; r++) {
+        for (var c = 0; c < COLS; c++) {
+          var px = document.createElement('div');
+          px.className = 'pixelated-image-card__pixel';
+          px.style.cssText = 'width:' + (100/COLS) + '%;height:' + (100/ROWS) + '%;left:' + (c*(100/COLS)) + '%;top:' + (r*(100/ROWS)) + '%;';
+          container.appendChild(px);
+        }
+      }
+
+      var chappyShown = false;
+
+      window.toggleChappy = function () {
+        var btn = document.getElementById('chappy-btn');
+        var defaultImg = document.querySelector('.pixelated-image-card__default');
+        var activeImg = document.querySelector('.pixelated-image-card__active');
+        var txt = document.getElementById('chappy-text');
+        var pixels = Array.from(container.children).sort(function () { return Math.random() - 0.5; });
+        var delay = 200 / pixels.length;
+
+        btn.style.pointerEvents = 'none';
+
+        // Phase 1: cover with pixels
+        pixels.forEach(function (px, i) {
+          setTimeout(function () { px.style.display = 'block'; }, i * delay);
+        });
+
+        // Phase 2: swap image then uncover
+        setTimeout(function () {
+          if (!chappyShown) {
+            activeImg.style.display = 'block';
+            txt.style.display = 'block';
+            btn.textContent = 'hide me';
+          } else {
+            activeImg.style.display = 'none';
+            txt.style.display = 'none';
+            btn.textContent = 'click me';
+          }
+          chappyShown = !chappyShown;
+
+          var pixels2 = Array.from(container.children).sort(function () { return Math.random() - 0.5; });
+          pixels2.forEach(function (px, i) {
+            setTimeout(function () { px.style.display = 'none'; }, i * delay);
+          });
+
+          setTimeout(function () { btn.style.pointerEvents = ''; }, pixels2.length * delay);
+        }, pixels.length * delay + 50);
+      };
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('nav-hamburger');
+      var links = document.getElementById('nav-links');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        btn.classList.toggle('open');
+        links.classList.toggle('open');
+      });
+      links.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          btn.classList.remove('open');
+          links.classList.remove('open');
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
