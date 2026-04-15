@@ -18,7 +18,7 @@ const sectionObs = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: '-40% 0px -55% 0px' });
 
-['me','skills','experience','writeup'].forEach(id => {
+['me','skills','experience','education','writeup'].forEach(id => {
   const el = document.getElementById(id);
   if (el) sectionObs.observe(el);
 });
