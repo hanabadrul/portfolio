@@ -306,9 +306,18 @@
       }
 
       var chappyShown = false;
+      var chappyWarned = false;
 
       window.toggleChappy = function () {
         var btn = document.getElementById('chappy-btn');
+
+        // First click: show warning, don't reveal yet
+        if (!chappyShown && !chappyWarned) {
+          chappyWarned = true;
+          btn.innerHTML = 'are you sure? <span style="font-size:0.75em;opacity:0.7;">(turn up your volume!!)</span>';
+          return;
+        }
+
         var defaultImg = document.querySelector('.pixelated-image-card__default');
         var activeImg = document.querySelector('.pixelated-image-card__active');
         var txt = document.getElementById('chappy-text');
@@ -334,6 +343,7 @@
             activeImg.style.display = 'none';
             txt.style.display = 'none';
             btn.textContent = 'click me';
+            chappyWarned = false;
           }
           chappyShown = !chappyShown;
 

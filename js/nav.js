@@ -9,6 +9,7 @@ if (heroEl) {
   new IntersectionObserver(([e]) => {
     navbar.classList.toggle('scrolled', !e.isIntersecting);
     if (e.isIntersecting) navLinks.forEach(l => l.classList.remove('active'));
+    if (window.setBoardActive) window.setBoardActive(e.isIntersecting);
   }, { threshold: 0.05 }).observe(heroEl);
 }
 

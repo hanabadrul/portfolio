@@ -145,8 +145,10 @@ async function showPhrase(idx, delay) {
   animating = false;
 }
 
+let boardActive = true;
+
 showPhrase(0, 700);
-setInterval(() => {
+let phraseInterval = setInterval(() => {
   phraseIdx = (phraseIdx + 1) % phrases.length;
   showPhrase(phraseIdx, 0);
 }, 5000);
@@ -157,6 +159,7 @@ setInterval(() => {
 function idleTick(rowEl, interval) {
   const flaps = [...rowEl.querySelectorAll('.flap')];
   async function tick() {
+    if (!boardActive) { setTimeout(tick, 500); return; }
     const flapEl = flaps[Math.floor(Math.random() * flaps.length)];
     const ch = CHARS[1 + Math.floor(Math.random() * (CHARS.length - 1))];
     await flapTo(flapEl, ch);
@@ -171,3 +174,15 @@ idleTick(bTop1El, 1100);
 idleTick(bTop2El, 1400);
 idleTick(bBot1El, 900);
 idleTick(bBot2El, 1600);
+
+window.setBoardActive = function (active) {
+  boardActive = active;
+  if (!active) {
+    clearInterval(phraseInterval);
+  } else {
+    phraseInterval = setInterval(() => {
+      phraseIdx = (phraseIdx + 1) % phrases.length;
+      showPhrase(phraseIdx, 0);
+    }, 5000);
+  }
+};

@@ -106,7 +106,6 @@ nav.scrolled {
   background: rgba(14, 13, 10, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
 }
 nav.scrolled .nav-logo       { color: var(--muted); }
 nav.scrolled .nav-logo:hover { color: var(--text); }
@@ -671,6 +670,9 @@ footer p {
   width: 100%;
   position: relative;
   overflow: hidden;
+  border: 3px solid #a8d8ea;
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(168, 216, 234, 0.6), 0 0 30px rgba(168, 216, 234, 0.3), 0 0 60px rgba(168, 216, 234, 0.15);
 }
 .pixelated-image-card__default,
 .pixelated-image-card__active {
