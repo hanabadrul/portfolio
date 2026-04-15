@@ -8,6 +8,7 @@ const navLinks = document.querySelectorAll('.nav-links a');
 if (heroEl) {
   new IntersectionObserver(([e]) => {
     navbar.classList.toggle('scrolled', !e.isIntersecting);
+    if (e.isIntersecting) navLinks.forEach(l => l.classList.remove('active'));
   }, { threshold: 0.05 }).observe(heroEl);
 }
 

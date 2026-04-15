@@ -302,8 +302,9 @@ nav.scrolled .nav-links a::after { background: var(--accent); }
 /* Scroll hint */
 .hero-scroll {
   position: absolute;
-  bottom: 2.5rem; left: 50%;
-  transform: translateX(-50%);
+  bottom: 2.5rem; left: 0; right: 0;
+  margin: 0 auto;
+  width: fit-content;
   z-index: 2;
   display: flex;
   flex-direction: column;
